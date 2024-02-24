@@ -1,0 +1,7 @@
+path:
+  - src
+extensions:
+  - php
+  - php.dist
+warning: true
+cache: /tmp/phplint

@@ -1,0 +1,29 @@
+version: "3.8"
+
+x-templates:
+  default-variables: &default-variables
+    TZ: UTC
+  default-service: &default-service
+    restart: unless-stopped
+    tty: true
+    stdin_open: true
+    init: true
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      <<: *default-variables
+  as-current-user: &as-current-user
+    user: ${DOCKER_UID:-1000}:${DOCKER_GID:-1000}
+
+services:
+  app:
+    <<:
+      - *default-service
+      - *as-current-user
+    image: columbusinteractive/php-dev:8.3-alpine
+    container_name: benjaminhirsch-html
+    environment:
+      <<: *default-variables
+    working_dir: /app
+    volumes:
+      - .:/app
