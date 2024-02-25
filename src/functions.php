@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace BenjaminHirsch\Html
 {
 
-    use BenjaminHirsch\Html\Attributes\Autofocus;
-    use BenjaminHirsch\Html\Attributes\CssClass;
-    use BenjaminHirsch\Html\Attributes\Dir;
-    use BenjaminHirsch\Html\Attributes\Href;
-    use BenjaminHirsch\Html\Attributes\Target;
-    use BenjaminHirsch\Html\Elements\Anchor;
-    use BenjaminHirsch\Html\Elements\Base;
-    use BenjaminHirsch\Html\Elements\ListItem;
-    use BenjaminHirsch\Html\Elements\OrderedList;
-    use BenjaminHirsch\Html\Elements\UnorderedList;
+    use BenjaminHirsch\Html\Attribute\Global\Autofocus;
+    use BenjaminHirsch\Html\Attribute\Global\CssClass;
+    use BenjaminHirsch\Html\Attribute\Global\Dir;
+    use BenjaminHirsch\Html\Attribute\Specific\Href;
+    use BenjaminHirsch\Html\Attribute\Specific\Target;
+    use BenjaminHirsch\Html\Element\Anchor;
+    use BenjaminHirsch\Html\Element\Base;
+    use BenjaminHirsch\Html\Element\ListItem;
+    use BenjaminHirsch\Html\Element\OrderedList;
+    use BenjaminHirsch\Html\Element\UnorderedList;
 
     function ol(INode|IAttribute|string ...$attributesOrNodes): OrderedList
     {
@@ -56,7 +56,7 @@ namespace BenjaminHirsch\Html
         return new Base(...$attributesOrNodes);
     }
 
-    function dir(string $value): Dir
+    function dir(Attribute\Value\Dir $value): Dir
     {
         return new Dir($value);
     }

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Test\Attributes;
 
-use BenjaminHirsch\Html\Attributes\Dir;
+use BenjaminHirsch\Html\Attribute\Value\Dir;
 use PHPUnit\Framework\TestCase;
 
 use function BenjaminHirsch\Html\dir;

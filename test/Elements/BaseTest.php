@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Test\Elements;
 
-use BenjaminHirsch\Html\Attributes\Data;
+use BenjaminHirsch\Html\Attribute\Global\Data;
 use PHPUnit\Framework\TestCase;
 
 use function BenjaminHirsch\Html\base;
