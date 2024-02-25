@@ -10,7 +10,6 @@ use BenjaminHirsch\Html\IRequiresAttribute;
 use BenjaminHirsch\Html\IVoidElement;
 use BenjaminHirsch\Html\Node;
 use BenjaminHirsch\Html\Requirement;
-use BenjaminHirsch\Html\Type;
 use Override;
 
 final class Base extends Node implements IVoidElement, IRequiresAttribute
@@ -19,12 +18,6 @@ final class Base extends Node implements IVoidElement, IRequiresAttribute
     public function name(): string
     {
         return 'base';
-    }
-
-    #[Override]
-    public function getType(): Type
-    {
-        return Type::ELEMENT;
     }
 
     /** @inheritdoc  */

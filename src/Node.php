@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html;
 
+use Override;
 use RuntimeException;
 
 use function array_filter;
@@ -20,7 +21,7 @@ use function sprintf;
 abstract class Node implements INode
 {
     /** @var array<INode|IAttribute|string>  */
-    protected array $attributesOrNodes;
+    protected readonly array $attributesOrNodes;
     protected bool $shouldBeRendered = true;
 
     public function __construct(
@@ -103,5 +104,11 @@ abstract class Node implements INode
                 implode(', ', $this->requires()),
             ));
         }
+    }
+
+    #[Override]
+    public function getType(): Type
+    {
+        return Type::ELEMENT;
     }
 }

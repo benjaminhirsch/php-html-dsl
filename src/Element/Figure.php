@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace BenjaminHirsch\Html\Element;
 
 use BenjaminHirsch\Html\Node;
-use BenjaminHirsch\Html\Type;
 use Override;
 
 final class Figure extends Node
@@ -14,11 +13,5 @@ final class Figure extends Node
     public function name(): string
     {
         return 'figure';
-    }
-
-    #[Override]
-    public function getType(): Type
-    {
-        return Type::ELEMENT;
     }
 }
