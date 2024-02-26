@@ -7,11 +7,11 @@ namespace BenjaminHirsch\Html\Element;
 use BenjaminHirsch\Html\Node;
 use Override;
 
-final class TextArea extends Node
+final class TableBody extends Node
 {
     #[Override]
     public function name(): string
     {
-        return 'textarea';
+        return 'tbody';
     }
 }

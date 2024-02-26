@@ -5,19 +5,18 @@ declare(strict_types=1);
 namespace BenjaminHirsch\Html\Attribute\Specific;
 
 use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IBooleanAttribute;
 use Override;
 
-final readonly class Required extends Attribute implements IBooleanAttribute
+final readonly class ScriptType extends Attribute
 {
-    public function __construct()
+    public function __construct(Attribute\Value\ScriptType $scriptType)
     {
-        parent::__construct('');
+        parent::__construct($scriptType->value);
     }
 
     #[Override]
     public function name(): string
     {
-        return 'required';
+        return 'type';
     }
 }
