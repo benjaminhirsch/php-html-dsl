@@ -16,22 +16,22 @@ namespace BenjaminHirsch\Html
     use BenjaminHirsch\Html\Element\OrderedList;
     use BenjaminHirsch\Html\Element\UnorderedList;
 
-    function ol(INode|IAttribute|string ...$attributesOrNodes): OrderedList
+    function ol(Element|Attribute|string ...$attributesOrNodes): OrderedList
     {
         return new OrderedList(...$attributesOrNodes);
     }
 
-    function ul(INode|IAttribute|string ...$attributesOrNodes): UnorderedList
+    function ul(Element|Attribute|string ...$attributesOrNodes): UnorderedList
     {
         return new UnorderedList(...$attributesOrNodes);
     }
 
-    function li(INode|IAttribute|string ...$attributesOrNodes): ListItem
+    function li(Element|Attribute|string ...$attributesOrNodes): ListItem
     {
         return new ListItem(...$attributesOrNodes);
     }
 
-    function a(INode|IAttribute|string ...$attributesOrNodes): Anchor
+    function a(Element|Attribute|string ...$attributesOrNodes): Anchor
     {
         return new Anchor(...$attributesOrNodes);
     }
@@ -51,7 +51,7 @@ namespace BenjaminHirsch\Html
         return new Target($value);
     }
 
-    function base(INode|IAttribute|string ...$attributesOrNodes): Base
+    function base(Element|Attribute|string ...$attributesOrNodes): Base
     {
         return new Base(...$attributesOrNodes);
     }

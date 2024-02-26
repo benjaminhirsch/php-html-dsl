@@ -2,8 +2,14 @@
 
 declare(strict_types=1);
 
-namespace BenjaminHirsch\Html;
+namespace BenjaminHirsch\Html\Element;
 
+use BenjaminHirsch\Html\Attribute as AttributeInterface;
+use BenjaminHirsch\Html\Element as ElementInterface;
+use BenjaminHirsch\Html\Requirement;
+use BenjaminHirsch\Html\RequiresAttribute;
+use BenjaminHirsch\Html\Type;
+use BenjaminHirsch\Html\VoidElement;
 use Override;
 use RuntimeException;
 
@@ -15,30 +21,29 @@ use function count;
 use function implode;
 use function is_callable;
 use function is_string;
-use function property_exists;
 use function sprintf;
 
-abstract class Node implements INode
+abstract class Element implements ElementInterface
 {
-    /** @var array<INode|IAttribute|string>  */
+    /** @var array<ElementInterface|AttributeInterface|string>  */
     protected readonly array $attributesOrNodes;
     protected bool $shouldBeRendered = true;
 
     public function __construct(
-        INode|IAttribute|string ...$attributesOrNodes,
+        ElementInterface|AttributeInterface|string ...$attributesOrNodes,
     ) {
         $this->attributesOrNodes = $attributesOrNodes;
     }
 
     public function render(): string
     {
-        if ($this instanceof IRequiresAttribute) {
+        if ($this instanceof RequiresAttribute) {
             $this->fulfillsRequirements();
         }
 
-        if ($this instanceof IVoidElement) {
+        if ($this instanceof VoidElement) {
             return sprintf('<%s%s/>', $this->name(), implode('', array_map(
-                static fn (IAttribute $a) => ' ' . $a->render(),
+                static fn (AttributeInterface $a) => ' ' . $a->render(),
                 $this->getAttributes(),
             )));
         }
@@ -47,33 +52,33 @@ abstract class Node implements INode
             '<%s%s>%s</%s>',
             $this->name(),
             implode('', array_map(
-                static fn (IAttribute $a) => ' ' . $a->render(),
+                static fn (AttributeInterface $a) => ' ' . $a->render(),
                 $this->getAttributes(),
             )),
             implode('', array_map(
-                static fn (INode|string $e) => $e instanceof INode ? $e->render() : $e,
+                static fn (ElementInterface|string $e) => $e instanceof ElementInterface ? $e->render() : $e,
                 $this->getNodes(),
             )),
             $this->name(),
         );
     }
 
-    /** @return INode[]|string[] */
+    /** @return ElementInterface[]|string[] */
     private function getNodes(): array
     {
         return array_filter(
             $this->attributesOrNodes,
-            static fn (mixed $v) => $v instanceof INode && $v->getType() === Type::ELEMENT &&
-                property_exists($v, 'shouldBeRendered') && $v->shouldBeRendered || is_string($v),
+            static fn (mixed $v) => $v instanceof Element && $v->getType() === Type::ELEMENT &&
+                $v->shouldBeRendered || is_string($v),
         );
     }
 
-    /** @return IAttribute[] */
+    /** @return AttributeInterface[] */
     private function getAttributes(): array
     {
         return array_filter(
             $this->attributesOrNodes,
-            static fn (mixed $v) => $v instanceof IAttribute && $v->getType() === Type::ATTRIBUTE,
+            static fn (mixed $v) => $v instanceof AttributeInterface && $v->getType() === Type::ATTRIBUTE,
         );
     }
 
@@ -86,14 +91,14 @@ abstract class Node implements INode
 
     private function fulfillsRequirements(): void
     {
-        assert($this instanceof IRequiresAttribute);
+        assert($this instanceof RequiresAttribute);
         if (
             ! match ($this->typeOfRequirement()) {
             Requirement::ALL => count(array_intersect(
-                array_map(static fn (IAttribute $a) => $a::class, $this->getAttributes()),
+                array_map(static fn (AttributeInterface $a) => $a::class, $this->getAttributes()),
             )) === count($this->requires()),
             Requirement::AT_LEAST_ONE => count(array_intersect(
-                array_map(static fn (IAttribute $a) => $a::class, $this->getAttributes()),
+                array_map(static fn (AttributeInterface $a) => $a::class, $this->getAttributes()),
             )) > 0,
             }
         ) {

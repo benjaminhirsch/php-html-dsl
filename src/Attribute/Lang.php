@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IGlobalAttribute;
+use BenjaminHirsch\Html\GlobalAttribute;
 use Override;
 
-final readonly class Lang extends Attribute implements IGlobalAttribute
+final readonly class Lang extends Attribute implements GlobalAttribute
 {
     #[Override]
     public function name(): string

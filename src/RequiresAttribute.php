@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html;
 
-interface IRequiresAttribute
+interface RequiresAttribute
 {
     /**
      * Must return an array with full qualified namespaces

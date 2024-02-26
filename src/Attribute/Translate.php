@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IGlobalAttribute;
+use BenjaminHirsch\Html\GlobalAttribute;
 use Override;
 
-final readonly class Translate extends Attribute implements IGlobalAttribute
+final readonly class Translate extends Attribute implements GlobalAttribute
 {
-    public function __construct(Attribute\Value\Translate $translate)
+    public function __construct(Value\Translate $translate)
     {
         parent::__construct($translate->value);
     }

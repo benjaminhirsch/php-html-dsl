@@ -5,13 +5,12 @@ declare(strict_types=1);
 namespace BenjaminHirsch\Html\Element;
 
 use BenjaminHirsch\Html\Attribute\Source;
-use BenjaminHirsch\Html\IRequiresAttribute;
-use BenjaminHirsch\Html\IVoidElement;
-use BenjaminHirsch\Html\Node;
 use BenjaminHirsch\Html\Requirement;
+use BenjaminHirsch\Html\RequiresAttribute;
+use BenjaminHirsch\Html\VoidElement;
 use Override;
 
-final class Image extends Node implements IVoidElement, IRequiresAttribute
+final class Image extends Element implements VoidElement, RequiresAttribute
 {
     #[Override]
     public function name(): string

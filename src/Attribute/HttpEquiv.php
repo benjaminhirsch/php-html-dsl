@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IRequiresAttribute;
 use BenjaminHirsch\Html\Requirement;
+use BenjaminHirsch\Html\RequiresAttribute;
 use Override;
 
-final readonly class HttpEquiv extends Attribute implements IRequiresAttribute
+final readonly class HttpEquiv extends Attribute implements RequiresAttribute
 {
-    public function __construct(Attribute\Value\HttpEquiv $httpEquiv)
+    public function __construct(Value\HttpEquiv $httpEquiv)
     {
         parent::__construct($httpEquiv->value);
     }

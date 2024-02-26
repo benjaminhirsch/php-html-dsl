@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html;
 
-interface INode
+interface Element
 {
     public function name(): string;
 
@@ -12,5 +12,5 @@ interface INode
 
     public function getType(): Type;
 
-    public function if(callable|bool $condition): INode;
+    public function if(callable|bool $condition): Element;
 }

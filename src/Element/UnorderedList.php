@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Element;
 
-use BenjaminHirsch\Html\Node;
 use Override;
 
-final class UnorderedList extends Node
+final class UnorderedList extends Element
 {
     #[Override]
     public function name(): string

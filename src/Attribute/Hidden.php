@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IGlobalAttribute;
+use BenjaminHirsch\Html\GlobalAttribute;
 use Override;
 
-final readonly class Hidden extends Attribute implements IGlobalAttribute
+final readonly class Hidden extends Attribute implements GlobalAttribute
 {
-    public function __construct(Attribute\Value\Hidden $hidden)
+    public function __construct(Value\Hidden $hidden)
     {
         parent::__construct($hidden->value);
     }

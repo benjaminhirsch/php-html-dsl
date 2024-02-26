@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
 use Override;
 
 final readonly class FormMethod extends Attribute
 {
-    public function __construct(Attribute\Value\FormMethod $formMethod)
+    public function __construct(Value\FormMethod $formMethod)
     {
         parent::__construct($formMethod->value);
     }

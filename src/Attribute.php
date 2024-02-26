@@ -4,35 +4,13 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html;
 
-use Override;
-
-use function sprintf;
-
-abstract readonly class Attribute implements IAttribute
+interface Attribute
 {
-    public function __construct(public string $value)
-    {
-    }
+    public function name(): string;
 
-    #[Override]
-    public function render(): string
-    {
-        if ($this instanceof IBooleanAttribute) {
-            return sprintf('%s', $this->name());
-        }
+    public function value(): string;
 
-        return sprintf('%s="%s"', $this->name(), $this->value());
-    }
+    public function render(): string;
 
-    #[Override]
-    public function getType(): Type
-    {
-        return Type::ATTRIBUTE;
-    }
-
-    #[Override]
-    public function value(): string
-    {
-        return $this->value;
-    }
+    public function getType(): Type;
 }

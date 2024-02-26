@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IBooleanAttribute;
-use BenjaminHirsch\Html\IGlobalAttribute;
+use BenjaminHirsch\Html\BooleanAttribute;
+use BenjaminHirsch\Html\GlobalAttribute;
 use Override;
 
-final readonly class Autofocus extends Attribute implements IBooleanAttribute, IGlobalAttribute
+final readonly class Autofocus extends Attribute implements BooleanAttribute, GlobalAttribute
 {
     public function __construct()
     {

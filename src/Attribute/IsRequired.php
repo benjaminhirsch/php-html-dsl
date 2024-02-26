@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IBooleanAttribute;
+use BenjaminHirsch\Html\BooleanAttribute;
 use Override;
 
-final readonly class IsRequired extends Attribute implements IBooleanAttribute
+final readonly class IsRequired extends Attribute implements BooleanAttribute
 {
     public function __construct()
     {

@@ -4,14 +4,13 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IRequiresAttribute;
 use BenjaminHirsch\Html\Requirement;
+use BenjaminHirsch\Html\RequiresAttribute;
 use Override;
 
-final readonly class ControlList extends Attribute implements IRequiresAttribute
+final readonly class ControlList extends Attribute implements RequiresAttribute
 {
-    public function __construct(Attribute\Value\ControlsList $controlsList)
+    public function __construct(Value\ControlsList $controlsList)
     {
         parent::__construct($controlsList->value);
     }

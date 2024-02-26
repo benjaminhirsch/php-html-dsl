@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IGlobalAttribute;
-use BenjaminHirsch\Html\IRequiresAttribute;
+use BenjaminHirsch\Html\GlobalAttribute;
 use BenjaminHirsch\Html\Requirement;
+use BenjaminHirsch\Html\RequiresAttribute;
 use Override;
 
-final readonly class ItemType extends Attribute implements IRequiresAttribute, IGlobalAttribute
+final readonly class ItemType extends Attribute implements RequiresAttribute, GlobalAttribute
 {
     #[Override]
     public function name(): string

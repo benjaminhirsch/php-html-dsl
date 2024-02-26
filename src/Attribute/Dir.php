@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute;
-use BenjaminHirsch\Html\IGlobalAttribute;
+use BenjaminHirsch\Html\GlobalAttribute;
 use Override;
 
-final readonly class Dir extends Attribute implements IGlobalAttribute
+final readonly class Dir extends Attribute implements GlobalAttribute
 {
-    public function __construct(Attribute\Value\Dir $dir)
+    public function __construct(Value\Dir $dir)
     {
         parent::__construct($dir->value);
     }

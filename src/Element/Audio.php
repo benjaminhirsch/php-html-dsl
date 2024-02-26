@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Element;
 
-use BenjaminHirsch\Html\Node;
 use Override;
 
-final class Audio extends Node
+final class Audio extends Element
 {
     #[Override]
     public function name(): string

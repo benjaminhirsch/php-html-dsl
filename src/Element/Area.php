@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Element;
 
-use BenjaminHirsch\Html\IVoidElement;
-use BenjaminHirsch\Html\Node;
+use BenjaminHirsch\Html\VoidElement;
 use Override;
 
-final class Area extends Node implements IVoidElement
+final class Area extends Element implements VoidElement
 {
     #[Override]
     public function name(): string

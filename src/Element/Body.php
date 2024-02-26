@@ -6,13 +6,12 @@ namespace BenjaminHirsch\Html\Element;
 
 use BenjaminHirsch\Html\Attribute\Href;
 use BenjaminHirsch\Html\Attribute\Target;
-use BenjaminHirsch\Html\IRequiresAttribute;
-use BenjaminHirsch\Html\IVoidElement;
-use BenjaminHirsch\Html\Node;
 use BenjaminHirsch\Html\Requirement;
+use BenjaminHirsch\Html\RequiresAttribute;
+use BenjaminHirsch\Html\VoidElement;
 use Override;
 
-final class Body extends Node implements IVoidElement, IRequiresAttribute
+final class Body extends Element implements VoidElement, RequiresAttribute
 {
     #[Override]
     public function name(): string
