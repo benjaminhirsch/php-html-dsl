@@ -2,28 +2,26 @@
 
 declare(strict_types=1);
 
-namespace BenjaminHirsch\Html\Element;
+namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute\Source;
+use BenjaminHirsch\Html\Attribute;
 use BenjaminHirsch\Html\IRequiresAttribute;
-use BenjaminHirsch\Html\IVoidElement;
-use BenjaminHirsch\Html\Node;
 use BenjaminHirsch\Html\Requirement;
 use Override;
 
-final class Image extends Node implements IVoidElement, IRequiresAttribute
+final readonly class Accept extends Attribute implements IRequiresAttribute
 {
     #[Override]
     public function name(): string
     {
-        return 'img';
+        return 'accept';
     }
 
     /** @inheritDoc */
     #[Override]
     public function requires(): array
     {
-        return [Source::class];
+        return [Type::class];
     }
 
     #[Override]

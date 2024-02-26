@@ -2,31 +2,29 @@
 
 declare(strict_types=1);
 
-namespace BenjaminHirsch\Html\Element;
+namespace BenjaminHirsch\Html\Attribute;
 
-use BenjaminHirsch\Html\Attribute\Href;
-use BenjaminHirsch\Html\Attribute\Target;
+use BenjaminHirsch\Html\Attribute;
+use BenjaminHirsch\Html\IGlobalAttribute;
 use BenjaminHirsch\Html\IRequiresAttribute;
-use BenjaminHirsch\Html\IVoidElement;
-use BenjaminHirsch\Html\Node;
 use BenjaminHirsch\Html\Requirement;
 use Override;
 
-final class Body extends Node implements IVoidElement, IRequiresAttribute
+final readonly class ItemType extends Attribute implements IRequiresAttribute, IGlobalAttribute
 {
     #[Override]
     public function name(): string
     {
-        return 'body';
+        return 'itemtype';
     }
 
-    /** @inheritdoc  */
+    /** @inheritDoc */
     #[Override]
     public function requires(): array
     {
         return [
-            Target::class,
-            Href::class,
+            ItemScope::class,
+            self::class,
         ];
     }
 

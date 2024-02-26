@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Element;
 
-use BenjaminHirsch\Html\Attribute\Specific\Href;
-use BenjaminHirsch\Html\Attribute\Specific\Target;
+use BenjaminHirsch\Html\Attribute\Href;
+use BenjaminHirsch\Html\Attribute\Target;
 use BenjaminHirsch\Html\IRequiresAttribute;
 use BenjaminHirsch\Html\IVoidElement;
 use BenjaminHirsch\Html\Node;

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace BenjaminHirsch\Html\Test\Elements;
 
-use BenjaminHirsch\Html\Attribute\Global\Id;
+use BenjaminHirsch\Html\Attribute\Id;
 use BenjaminHirsch\Html\Element\OrderedList;
 use PHPUnit\Framework\TestCase;
 

@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace BenjaminHirsch\Html
 {
 
-    use BenjaminHirsch\Html\Attribute\Global\Autofocus;
-    use BenjaminHirsch\Html\Attribute\Global\CssClass;
-    use BenjaminHirsch\Html\Attribute\Global\Dir;
-    use BenjaminHirsch\Html\Attribute\Specific\Href;
-    use BenjaminHirsch\Html\Attribute\Specific\Target;
+    use BenjaminHirsch\Html\Attribute\Autofocus;
+    use BenjaminHirsch\Html\Attribute\CssClass;
+    use BenjaminHirsch\Html\Attribute\Dir;
+    use BenjaminHirsch\Html\Attribute\Href;
+    use BenjaminHirsch\Html\Attribute\Target;
     use BenjaminHirsch\Html\Element\Anchor;
     use BenjaminHirsch\Html\Element\Base;
     use BenjaminHirsch\Html\Element\ListItem;
