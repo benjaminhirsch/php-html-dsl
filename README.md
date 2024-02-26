@@ -31,7 +31,7 @@ ol(
     li('Another list item')
 )->render()
 
-// Use FQCNs
+// Use FQNs
 (new OrderedList(
     new ListItem('Hello World'),
     new ListItem(new Anchor(new Href('/hello-world')), 'Link label'),
