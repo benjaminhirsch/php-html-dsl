@@ -7,7 +7,7 @@ namespace BenjaminHirsch\Html;
 interface IRequiresAttribute
 {
     /**
-     * Must return an array with full qualified name spaces
+     * Must return an array with full qualified namespaces
      *
      * @return string[]
      */
