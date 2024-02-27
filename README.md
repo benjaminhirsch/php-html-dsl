@@ -47,5 +47,5 @@ ol(
 </ol>
 
 // Conditional rendering
-(new Anchor('/logout'), 'Logout')->if(callable|bool)
+(new Anchor(new Href('/logout')), 'Logout')->if(callable|bool)
 ```
